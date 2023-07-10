@@ -3,3 +3,22 @@
 .subir {
   border-radius: 50%;
 }
+
+.articulo__imgContainer {
+  position: relative;
+}
+.articulo__imgContainer::after {
+  content: "";
+  width: 65%;
+  height: 37vh;
+  background-color: aquamarine;
+  position: absolute;
+  top: 13px;
+  left: 14%;
+  z-index: -5 ;
+}
+.articulo__img {
+  object-fit: cover;
+  width: 65%;
+  height: 37vh;
+}
