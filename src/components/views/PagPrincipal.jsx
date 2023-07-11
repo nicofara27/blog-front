@@ -4,9 +4,10 @@ import { Container } from 'react-bootstrap';
 
 const PagPrincipal = () => {
     return (
-        <main className='py-4'>
+        <main>
             <Container>
-            <Articulo />
+            <Articulo/>
+            <Articulo/>
             </Container>
         </main>
     );

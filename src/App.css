@@ -5,6 +5,7 @@
 }
 
 .articulo__imgContainer {
+  text-align: end;
   position: relative;
 }
 .articulo__imgContainer::after {
@@ -13,10 +14,21 @@
   height: 37vh;
   background-color: aquamarine;
   position: absolute;
-  top: 13px;
-  left: 14%;
+  top: 1rem;
+  right: 1rem;
   z-index: -5 ;
 }
+
+.articulo:nth-child(2n+2) {
+  flex-direction: row-reverse;
+}
+.articulo:nth-child(2n+2) .articulo__imgContainer {
+  text-align: start;
+}
+.articulo:nth-child(2n+2) .articulo__imgContainer::after {
+  left: 1rem;
+}
+
 .articulo__img {
   object-fit: cover;
   width: 65%;
