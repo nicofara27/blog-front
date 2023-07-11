@@ -1,4 +1,10 @@
 @import "bootstrap/dist/css/bootstrap.css";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+
+.fs-7 {
+  font-size: .9rem;
+}
+
 
 .subir {
   border-radius: 50%;
@@ -33,4 +39,18 @@
   object-fit: cover;
   width: 65%;
   height: 37vh;
+}
+
+
+
+
+
+#art__imgContainer {
+  height: 20vh;
+}
+.art__img {
+  object-fit: cover;
+}
+.art__p {
+  text-align: justify;
 }
