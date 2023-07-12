@@ -3,6 +3,8 @@ import "./App.css";
 import Menu from "./components/common/Menu";
 import PagPrincipal from "./components/views/PagPrincipal";
 import PagArticulo from "./components/views/PagArticulo";
+import PagIngreso from "./components/views/PagIngreso";
+import PagRegistro from "./components/views/PagRegistro";
 
 function App() {
   return (
@@ -10,6 +12,8 @@ function App() {
       <Menu />
       <Routes>
         <Route exact path="/" element={<PagPrincipal/>}></Route>
+        <Route exact path="/ingreso" element={<PagIngreso/>}></Route>
+        <Route exact path="/registro" element={<PagRegistro/>}></Route>
         <Route exact path="/articulo/:id" element={<PagArticulo/>}></Route>
       </Routes>
     </BrowserRouter>
