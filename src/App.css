@@ -41,9 +41,25 @@
   height: 37vh;
 }
 
-
-
-
+.pagFormularios {
+  min-height: 80vh;
+}
+.pagFormularios__form {
+  width: 30%;
+  background: aquamarine;
+  border-radius: 5px;
+}
+.formInput {
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid black;
+  background: aquamarine;
+}
+.formInput:focus {
+  background: aquamarine;
+  border-bottom: 1px solid black ;
+  box-shadow: none;
+}
 
 #art__imgContainer {
   height: 20vh;
@@ -54,3 +70,5 @@
 .art__p {
   text-align: justify;
 }
+
+
