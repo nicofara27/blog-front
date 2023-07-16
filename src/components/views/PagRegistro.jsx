@@ -1,18 +1,56 @@
-import React from "react";
-import { Button, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Alert, Button, Form } from "react-bootstrap";
+import { useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
+import { crearUsuario } from "../helpers/helpers";
 
 const PagRegistro = () => {
+  const [error, setError] = useState();
+  const navigate = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const registrar = (datos) => {
+    crearUsuario(datos).then((respuesta) => {
+      if(respuesta.status===201) {
+        <Alert variant="success">Te regisraste correctamente</Alert>;
+        navigate("/")
+      } else {
+        setError("Este usuario ya existe")
+      }
+    });
+  };
+
   return (
     <main className="pagFormularios d-flex flex-column align-items-center justify-content-center">
       <h1 className="fw-semibold">Registrarse</h1>
-      <Form className="pagFormularios__form py-4">
+      <Form
+        className="pagFormularios__form py-4"
+        onSubmit={handleSubmit(registrar)}
+      >
         <Form.Group className="my-3 mx-4" controlId="formBasicName">
           <Form.Control
             type="text"
             placeholder="Nombre de usuario"
             className="formInput"
+            {...register("nombreUsuario", {
+              required: "Este campo no puede estar vacio.",
+              minLength: {
+                value: 4,
+                message: "El nombre debe tener al menos 4 caracteres",
+              },
+              maxLength: {
+                value: 30,
+                message: "El nombre no debe tener mas de 30 caracteres",
+              },
+            })}
           />
+          <Form.Text className="text-danger">
+            {errors.nombreUsuario?.message}
+          </Form.Text>
         </Form.Group>
 
         <Form.Group className="my-3 mx-4" controlId="formBasicEmail">
@@ -20,7 +58,18 @@ const PagRegistro = () => {
             type="email"
             placeholder="Email"
             className="formInput"
+            {...register("email", {
+              required: "Este campo no puede estar vacio.",
+              pattern: {
+                value:
+                  /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g,
+                message: "Debe ingresar un formato valido",
+              },
+            })}
           />
+          <Form.Text className="text-danger">
+            {errors.nombreUsuario?.message}
+          </Form.Text>
         </Form.Group>
 
         <Form.Group className="my-3 mx-4" controlId="formBasicPassword">
@@ -28,12 +77,28 @@ const PagRegistro = () => {
             type="password"
             placeholder="Contraseña"
             className="formInput"
+            {...register("contrasenia", {
+              required: "Este campo no puede estar vacio.",
+              minLength: {
+                value: 8,
+                message: "Su contraseña debe tener al menos 8 caracteres",
+              },
+              maxLength: {
+                value: 30,
+                message:
+                  "Su contraseña debe tener como 30 caracteres como maximo",
+              },
+            })}
           />
+          <Form.Text className="text-danger">
+            {errors.nombreUsuario?.message}
+          </Form.Text>
         </Form.Group>
         <div className="text-center mb-3">
           <Button variant="outline-secondary" type="submit">
             Registrarse
           </Button>
+          {error && <p className="text-danger">{error}</p>}
         </div>
         <p className="text-center m-0">¿Ya tienes cuenta?</p>
         <div className="text-center">
