@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Alert, Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import { crearUsuario } from "../helpers/helpers";
+import axios from "axios";
 
 const PagRegistro = () => {
   const [error, setError] = useState();
@@ -13,15 +13,13 @@ const PagRegistro = () => {
     formState: { errors },
   } = useForm();
 
-  const registrar = (datos) => {
-    crearUsuario(datos).then((respuesta) => {
-      if(respuesta.status===201) {
-        <Alert variant="success">Te regisraste correctamente</Alert>;
-        navigate("/")
-      } else {
-        setError("Este usuario ya existe")
-      }
-    });
+  const registrar = async (datos) => {
+    try {
+      await axios.post("/usuarios/registrar", datos);
+      navigate("/ingreso");
+    } catch (error) {
+      setError(error.response.data);
+    }
   };
 
   return (
