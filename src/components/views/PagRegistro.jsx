@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Alert, Button, Form } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -17,7 +17,7 @@ const PagRegistro = () => {
     try {
       await axios.post("/usuarios/registrar", datos);
       navigate("/ingreso");
-    } catch (error) {
+    } catch (err) {
       setError(error.response.data);
     }
   };
@@ -65,9 +65,7 @@ const PagRegistro = () => {
               },
             })}
           />
-          <Form.Text className="text-danger">
-            {errors.nombreUsuario?.message}
-          </Form.Text>
+          <Form.Text className="text-danger">{errors.email?.message}</Form.Text>
         </Form.Group>
 
         <Form.Group className="my-3 mx-4" controlId="formBasicPassword">
@@ -89,7 +87,7 @@ const PagRegistro = () => {
             })}
           />
           <Form.Text className="text-danger">
-            {errors.nombreUsuario?.message}
+            {errors.contrasenia?.message}
           </Form.Text>
         </Form.Group>
         <div className="text-center mb-3">
