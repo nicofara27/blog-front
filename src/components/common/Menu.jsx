@@ -1,28 +1,37 @@
-import React from 'react';
-import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import React, { useContext } from "react";
+import { Button, Container, Nav, Navbar } from "react-bootstrap";
+import { AuthContext } from "../context/authContext";
 
 const Menu = () => {
-    return (
-        <Navbar expand="lg" className="bg-body-tertiary">
+  const { usuarioActivo, logout } = useContext(AuthContext);
+
+  return (
+    <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
         <Navbar.Brand href="#home">Blog</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link href="#home">Arte</Nav.Link>
-            <Nav.Link href="#link">Musica</Nav.Link>
-            <Nav.Link href="#link">Cine</Nav.Link>
-            <Nav.Link href="#link">Comida</Nav.Link>
-            <Nav.Link href="#link">Ciencia</Nav.Link>
-            <Nav.Link href="#link">Tecnologia</Nav.Link>
-            <Nav.Link href="#link">Usuario</Nav.Link>
-            <Nav.Link href="#link">Salir</Nav.Link>
-            <Button href="#link" className='subir px-1'>Subir</Button>
+            <Nav.Link>Arte</Nav.Link>
+            <Nav.Link>Musica</Nav.Link>
+            <Nav.Link>Cine</Nav.Link>
+            <Nav.Link>Comida</Nav.Link>
+            <Nav.Link>Ciencia</Nav.Link>
+            <Nav.Link>Tecnologia</Nav.Link>
+            {usuarioActivo ? (
+              <div className="d-flex">
+                <Nav.Link>{usuarioActivo}</Nav.Link>
+                <Nav.Link onClick={logout}>Logout</Nav.Link>
+              </div>
+            ) : (
+              <Nav.Link href="/ingreso">Login</Nav.Link>
+            )}
+            <Button className="subir px-1">Subir</Button>
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
-    );
+  );
 };
 
 export default Menu;
