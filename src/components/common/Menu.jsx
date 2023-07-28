@@ -8,16 +8,16 @@ const Menu = () => {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="#home">Blog</Navbar.Brand>
+        <Navbar.Brand href="/">Blog</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link>Arte</Nav.Link>
-            <Nav.Link>Musica</Nav.Link>
-            <Nav.Link>Cine</Nav.Link>
-            <Nav.Link>Comida</Nav.Link>
-            <Nav.Link>Ciencia</Nav.Link>
-            <Nav.Link>Tecnologia</Nav.Link>
+            <Nav.Link href="/?categoria=arte">Arte</Nav.Link>
+            <Nav.Link href="/?categoria=musica">Musica</Nav.Link>
+            <Nav.Link href="/?categoria=cine">Cine</Nav.Link>
+            <Nav.Link href="/?categoria=comida">Comida</Nav.Link>
+            <Nav.Link href="/?categoria=ciencia">Ciencia</Nav.Link>
+            <Nav.Link href="/?categoria=tecnologia">Tecnologia</Nav.Link>
             {usuarioActivo ? (
               <div className="d-flex">
                 <Nav.Link>{usuarioActivo}</Nav.Link>
