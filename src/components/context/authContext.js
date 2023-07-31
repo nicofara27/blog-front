@@ -9,12 +9,13 @@ export const AuthContextProvider = ({ children }) => {
   );
 
   const login = async (datos) => {
-    const res = await axios.post("http://localhost:4000/usuarios/login", datos);
+    const res = await axios.post("http://localhost:4000/usuarios/login", datos, {withCredentials: true, credentials: 'include'});
     setUsuarioActivo(res.data.nombreUsuario);
   };
-
+  
   const logout = async (datos) => {
-    await axios.post("http://localhost:4000/usuarios/logout");
+    await axios.post("http://localhost:4000/usuarios/logout", {} ,{withCredentials: true, credentials: 'include'});
+    console.log(axios.post("http://localhost:4000/usuarios/logout"))
     setUsuarioActivo(null);
   };
 
