@@ -1,8 +1,24 @@
-import moment from "moment/moment";
 import React from "react";
-import { Button, Col, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import moment from "moment/moment";
 
 const ArticuloInd = ({ articulo }) => {
+  const navigate = useNavigate();
+
+  const borrarArticulo = async () => {
+    try {
+      await axios.delete(
+        `http://localhost:4000/articulos/borrar/${articulo.id}`,
+        { credentials: "include" }
+      );
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <Col xs={8}>
       <div id="art__imgContainer">
@@ -26,7 +42,10 @@ const ArticuloInd = ({ articulo }) => {
         </Col>
         <Col>
           <i class="bi bi-pencil btn btn-primary py-0 px-1 me-1"></i>
-          <i class="bi bi-trash btn btn-danger py-0 px-1"></i>
+          <i
+            onClick={borrarArticulo}
+            class="bi bi-trash btn btn-danger py-0 px-1"
+          ></i>
         </Col>
       </Row>
       <div className="mt-5">
