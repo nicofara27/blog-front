@@ -11,7 +11,7 @@ const PagArticulo = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    const traerArticulos = async () => {
+    const traerArticulo = async () => {
       try {
         const respuesta = await axios.get(
           `http://localhost:4000/articulos/${id}`
@@ -21,13 +21,13 @@ const PagArticulo = () => {
         console.log(err);
       }
     };
-    traerArticulos();
+    traerArticulo();
   }, []);
 
   return (
     <main>
       <Container className="d-flex justify-content-between">
-        <ArticuloInd articulo={articulo}/>
+        <ArticuloInd articulo={articulo} />
         <ArticulosRec />
       </Container>
     </main>
