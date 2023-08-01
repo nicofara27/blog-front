@@ -24,11 +24,13 @@ const PagArticulo = () => {
     traerArticulo();
   }, []);
 
+  
+
   return (
     <main>
       <Container className="d-flex justify-content-between">
         <ArticuloInd articulo={articulo} />
-        <ArticulosRec />
+        <ArticulosRec categoria={articulo.categoria}/>
       </Container>
     </main>
   );
