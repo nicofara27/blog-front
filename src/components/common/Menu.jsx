@@ -26,7 +26,7 @@ const Menu = () => {
             ) : (
               <Nav.Link href="/ingreso">Login</Nav.Link>
             )}
-            <Button className="subir px-1">Subir</Button>
+            <Button className="subir px-1" href="/subir">Subir</Button>
           </Nav>
         </Navbar.Collapse>
       </Container>
