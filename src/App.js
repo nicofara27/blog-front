@@ -15,7 +15,8 @@ function App() {
         <Route exact path="/" element={<PagPrincipal/>}></Route>
         <Route exact path="/ingreso" element={<PagIngreso/>}></Route>
         <Route exact path="/registro" element={<PagRegistro/>}></Route>
-        <Route exact path="/agregar" element={<PagAgregarArt/>}></Route>
+        <Route exact path="/subir" element={<PagAgregarArt/>}></Route>
+        <Route exact path="/editar/:id" element={<PagAgregarArt/>}></Route>
         <Route exact path="/articulo/:id" element={<PagArticulo/>}></Route>
       </Routes>
     </BrowserRouter>
