@@ -12,7 +12,6 @@ const PagAgregarArt = () => {
   const [texto, setTexto] = useState(art ? art.texto : "");
   const [img, setImg] = useState(art ? art.img : "");
   const [categoria, setCategoria] = useState(art ? art.categoria : "");
-  const [catErr, setCatErr] = useState(false);
 
   const navigate = useNavigate();
 
@@ -21,7 +20,7 @@ const PagAgregarArt = () => {
     try {
       art
         ? await axios.put(
-            `http://localhost:4000/articulos/editar/${art.id}`,
+            `http://localhost:4000/articulos/${art.id}`,
             {
               titulo,
               texto,
