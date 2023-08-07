@@ -61,7 +61,7 @@ const ArticuloInd = ({ articulo }) => {
         <p
           className="mt-4 art__p"
           dangerouslySetInnerHTML={{
-            __html: DOMPurify.sanitize(articulo),
+            __html: DOMPurify.sanitize(articulo.texto),
           }}
         ></p>
       </div>
