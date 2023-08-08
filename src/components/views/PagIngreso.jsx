@@ -19,7 +19,7 @@ const PagIngreso = () => {
       await login(datos);
       navigate("/");
     } catch (err) {
-      setError(error.response.data);
+      setError(err.response.data);
     }
   };
 
@@ -29,6 +29,7 @@ const PagIngreso = () => {
       <Form
         className="pagFormularios__form py-4"
         onSubmit={handleSubmit(iniciarSesion)}
+        data-bs-theme="dark"
       >
         <Form.Group className="my-3 mx-4" controlId="formBasicUserName">
           <Form.Control
