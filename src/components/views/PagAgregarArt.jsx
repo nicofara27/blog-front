@@ -1,7 +1,7 @@
 import axios from "axios";
 import moment from "moment/moment";
 import React, { useState } from "react";
-import { Button, Col, Form } from "react-bootstrap";
+import { Alert, Button, Col, Form } from "react-bootstrap";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -12,45 +12,51 @@ const PagAgregarArt = () => {
   const [texto, setTexto] = useState(art ? art.texto : "");
   const [img, setImg] = useState(art ? art.img : "");
   const [categoria, setCategoria] = useState(art ? art.categoria : "");
+  const [error, setError] = useState(false);
 
   const navigate = useNavigate();
 
   const subirArticulo = async (e) => {
     e.preventDefault();
-    try {
-      art
-        ? await axios.put(
-            `http://localhost:4000/articulos/${art.id}`,
-            {
-              titulo,
-              texto,
-              img,
-              categoria,
-              fecha: art.fecha,
-            },
-            { withCredentials: true }
-          )
-        : await axios.post(
-            "http://localhost:4000/articulos/subir",
-            {
-              titulo,
-              texto,
-              img,
-              categoria,
-              fecha: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
-            },
-            { withCredentials: true }
-          );
-      navigate("/");
-    } catch (error) {
-      console.log(error);
+    if (titulo === "" || texto === "" || img === "" || categoria === "") {
+      setError(true);
+    } else {
+      try {
+        art
+          ? await axios.put(
+              `http://localhost:4000/articulos/${art.id}`,
+              {
+                titulo,
+                texto,
+                img,
+                categoria,
+                fecha: art.fecha,
+              },
+              { withCredentials: true }
+            )
+          : await axios.post(
+              "http://localhost:4000/articulos/subir",
+              {
+                titulo,
+                texto,
+                img,
+                categoria,
+                fecha: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
+              },
+              { withCredentials: true }
+            );
+        navigate("/");
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 
   return (
-    <main>
+    <main className="my-5">
+      {error?<Alert className="mx-5 mb-3" variant="danger">No puede haber campos vacios</Alert>:[]}
       <Form
-        className="d-flex justify-content-between m-5"
+        className="d-flex justify-content-between mx-5"
         onSubmit={subirArticulo}
       >
         <Col xs={8}>
