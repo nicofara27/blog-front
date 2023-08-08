@@ -109,6 +109,12 @@ color: #e45858 !important;
   box-shadow: none;
 }
 
+/* Navbar */
+
+#logo {
+  width: 4vw;
+}
+
 #art__imgContainer {
   height: 20vh;
 }
