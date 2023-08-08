@@ -1,9 +1,16 @@
 import React, { useContext } from "react";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { AuthContext } from "../context/authContext";
+import { useNavigate } from "react-router-dom";
 
 const Menu = () => {
   const { usuarioActivo, logout } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const cerrarSesion = () => {
+    logout();
+    navigate("/");
+  };
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
@@ -20,13 +27,15 @@ const Menu = () => {
             <Nav.Link href="/?categoria=tecnologia">Tecnologia</Nav.Link>
             {usuarioActivo ? (
               <div className="d-flex">
-                <Nav.Link>{usuarioActivo}</Nav.Link>
-                <Nav.Link onClick={logout}>Logout</Nav.Link>
+                <Nav.Link disabled>{usuarioActivo}</Nav.Link>
+                <Nav.Link onClick={cerrarSesion}>Logout</Nav.Link>
               </div>
             ) : (
               <Nav.Link href="/ingreso">Login</Nav.Link>
             )}
-            <Button className="subir px-1" href="/subir">Subir</Button>
+            <Button className="subir px-1" href="/subir">
+              Subir
+            </Button>
           </Nav>
         </Navbar.Collapse>
       </Container>
