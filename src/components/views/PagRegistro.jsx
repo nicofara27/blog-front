@@ -15,10 +15,10 @@ const PagRegistro = () => {
 
   const registrar = async (datos) => {
     try {
-      await axios.post("/usuarios/registrar", datos);
+      await axios.post("http://localhost:4000/usuarios/registrar", datos);
       navigate("/ingreso");
     } catch (err) {
-      setError(error.response.data);
+      setError(err.response.data);
     }
   };
 
@@ -28,6 +28,7 @@ const PagRegistro = () => {
       <Form
         className="pagFormularios__form py-4"
         onSubmit={handleSubmit(registrar)}
+        data-bs-theme="dark"
       >
         <Form.Group className="my-3 mx-4" controlId="formBasicName">
           <Form.Control
