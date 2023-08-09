@@ -2,15 +2,14 @@ import React, { useEffect, useState } from "react";
 import { Col } from "react-bootstrap";
 import ArticuloRecInd from "./ArticuloRecIndiv";
 import axios from "axios";
+const URL = process.env.REACT_APP_API_ARTICULOS;
 
 const ArticulosRec = ({ categoria }) => {
   const [articulos, setArticulos] = useState([]);
   useEffect(() => {
     const traerArticulos = async () => {
       try {
-        const respuesta = await axios.get(
-          `http://localhost:4000/articulos/?categoria=${categoria}`
-        );
+        const respuesta = await axios.get(URL + `/?categoria=${categoria}`);
         setArticulos(respuesta.data);
       } catch (err) {
         console.log(err);

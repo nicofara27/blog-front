@@ -5,6 +5,7 @@ import { Alert, Button, Col, Form } from "react-bootstrap";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { useLocation, useNavigate } from "react-router-dom";
+const URL = process.env.REACT_APP_API_ARTICULOS;
 
 const PagAgregarArt = () => {
   const art = useLocation().state;
@@ -24,7 +25,7 @@ const PagAgregarArt = () => {
       try {
         art
           ? await axios.put(
-              `http://localhost:4000/articulos/${art.id}`,
+              URL + `/${art.id}`,
               {
                 titulo,
                 texto,
@@ -35,7 +36,7 @@ const PagAgregarArt = () => {
               { withCredentials: true }
             )
           : await axios.post(
-              "http://localhost:4000/articulos/subir",
+              URL+"/subir",
               {
                 titulo,
                 texto,
@@ -54,7 +55,13 @@ const PagAgregarArt = () => {
 
   return (
     <main className="my-5">
-      {error?<Alert className="mx-5 mb-3" variant="danger">No puede haber campos vacios</Alert>:[]}
+      {error ? (
+        <Alert className="mx-5 mb-3" variant="danger">
+          No puede haber campos vacios
+        </Alert>
+      ) : (
+        []
+      )}
       <Form
         className="d-flex justify-content-between mx-5"
         onSubmit={subirArticulo}

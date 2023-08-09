@@ -12,7 +12,7 @@ const Articulo = ({ articulo }) => {
   };
 
   return (
-    <Row className="articulo">
+    <Row className="articulo mb-4">
       <Col className="d-flex flex-column justify-content-between">
         <h2 className="fw-bolder">{articulo.titulo}</h2>
         <p>{convertirTexto(articulo.texto)}</p>

@@ -1,5 +1,6 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
+const URL = process.env.REACT_APP_API_USUARIOS;
 
 export const AuthContext = createContext();
 
@@ -9,17 +10,16 @@ export const AuthContextProvider = ({ children }) => {
   );
 
   const login = async (datos) => {
-    const res = await axios.post(
-      "http://localhost:4000/usuarios/login",
-      datos,
-      { withCredentials: true, credentials: "include" }
-    );
+    const res = await axios.post(URL + "/login", datos, {
+      withCredentials: true,
+      credentials: "include",
+    });
     setUsuarioActivo(res.data.nombreUsuario);
   };
 
   const logout = async (datos) => {
     await axios.post(
-      "http://localhost:4000/usuarios/logout",
+      URL + "/logout",
       {},
       { withCredentials: true, credentials: "include" }
     );

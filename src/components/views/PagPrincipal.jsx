@@ -3,6 +3,7 @@ import Articulo from "./pagPrincipal/Articulo";
 import { Container } from "react-bootstrap";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
+const URL = process.env.REACT_APP_API_ARTICULOS;
 
 const PagPrincipal = () => {
   const [articulos, setArticulos] = useState([]);
@@ -12,7 +13,7 @@ const PagPrincipal = () => {
   useEffect(() => {
     const traerArticulos = async () => {
       try {
-        const respuesta = await axios.get(`http://localhost:4000/articulos${categoria}`);
+        const respuesta = await axios.get(URL+`${categoria}`);
         setArticulos(respuesta.data);
       } catch (err) {
         console.log(err);

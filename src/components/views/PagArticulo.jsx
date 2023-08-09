@@ -4,6 +4,7 @@ import ArticulosRec from "./pagArticulo/ArticulosRec";
 import { Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+const URL = process.env.REACT_APP_API_ARTICULOS;
 
 const PagArticulo = () => {
   const [articulo, setArticulo] = useState({});
@@ -13,9 +14,7 @@ const PagArticulo = () => {
   useEffect(() => {
     const traerArticulo = async () => {
       try {
-        const respuesta = await axios.get(
-          `http://localhost:4000/articulos/${id}`
-        );
+        const respuesta = await axios.get(URL + `/${id}`);
         setArticulo(respuesta.data);
       } catch (err) {
         console.log(err);
@@ -24,13 +23,11 @@ const PagArticulo = () => {
     traerArticulo();
   }, []);
 
-  
-
   return (
     <main>
       <Container className="d-flex justify-content-between">
         <ArticuloInd articulo={articulo} />
-        <ArticulosRec categoria={articulo.categoria}/>
+        <ArticulosRec categoria={articulo.categoria} />
       </Container>
     </main>
   );

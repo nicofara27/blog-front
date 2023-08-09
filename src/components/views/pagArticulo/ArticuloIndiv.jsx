@@ -6,6 +6,7 @@ import axios from "axios";
 import moment from "moment/moment";
 import "moment/locale/es";
 import DOMPurify from "dompurify";
+const URL = process.env.REACT_APP_API_ARTICULOS;
 
 const ArticuloInd = ({ articulo }) => {
   const { usuarioActivo } = useContext(AuthContext);
@@ -13,10 +14,7 @@ const ArticuloInd = ({ articulo }) => {
 
   const borrarArticulo = async () => {
     try {
-      await axios.delete(
-        `http://localhost:4000/articulos/borrar/${articulo.id}`,
-        { withCredentials: true }
-      );
+      await axios.delete(URL + `/${articulo.id}`, { withCredentials: true });
       navigate("/");
     } catch (error) {
       console.log(error);

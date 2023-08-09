@@ -3,6 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+const URL = process.env.REACT_APP_API_USUARIOS;
 
 const PagRegistro = () => {
   const [error, setError] = useState();
@@ -15,7 +16,7 @@ const PagRegistro = () => {
 
   const registrar = async (datos) => {
     try {
-      await axios.post("http://localhost:4000/usuarios/registrar", datos);
+      await axios.post(URL+"/registrar", datos);
       navigate("/ingreso");
     } catch (err) {
       setError(err.response.data);
