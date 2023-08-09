@@ -64,7 +64,7 @@ const ArticuloInd = ({ articulo }) => {
     );
 
   return (
-    <Col xs={8}>
+    <Col xs={12} md={8}>
       <div id="art__imgContainer">
         <img
           src={articulo.img}

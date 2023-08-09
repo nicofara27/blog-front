@@ -19,7 +19,7 @@ const ArticulosRec = ({ categoria }) => {
   }, [categoria]);
 
   return (
-    <Col className="ms-5">
+    <Col className="ms-md-5">
       <h4 className="fw-bolder">Otros articulos que te pueden interesar</h4>
       {articulos.map((articulo) => (
         <ArticuloRecInd key={articulo.id} articulo={articulo}></ArticuloRecInd>

@@ -128,12 +128,41 @@ color: #e45858 !important;
 }
 
 
-
-
 .formAgregar__titulo {
   height: 10%;
   margin-bottom: 1%;
 }
 .formAgregar__quill {
   height: 90.4%;
+}
+
+
+@media (max-width: 768px) {
+  #logo {
+    width: 10vw;
+  }
+  
+  .pagFormularios__form {
+    width: 80%;
+    height: 50vh;
+  }
+  .articulo__imgContainer {
+    margin-top: 1rem;
+    text-align: center;
+    min-height: 37vh;
+  }
+  .articulo__img {
+    width: 100%;
+    height: 37vh;
+  }
+  .articulo__imgContainer::after {
+    background-color: #6246ea00;
+  }
+  .articulo:nth-child(2n+2) .articulo__imgContainer {
+    text-align: center;
+  }
+  .articulo:nth-child(2n+2) {
+    flex-direction: row;
+  }
+
 }

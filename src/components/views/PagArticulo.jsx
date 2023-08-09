@@ -25,7 +25,7 @@ const PagArticulo = () => {
 
   return (
     <main>
-      <Container className="d-flex justify-content-between">
+      <Container className="d-flex flex-column flex-md-row justify-content-between ">
         <ArticuloInd articulo={articulo} />
         <ArticulosRec categoria={articulo.categoria} />
       </Container>
