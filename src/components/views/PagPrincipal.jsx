@@ -22,7 +22,7 @@ const PagPrincipal = () => {
   }, [categoria]);
 
   return (
-    <main>
+    <main className="my-4">
       <Container>
         {articulos.map((articulo) => (
           <Articulo key={articulo.id} articulo={articulo}></Articulo>
