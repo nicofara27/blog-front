@@ -3,6 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Person } from "react-bootstrap-icons";
 const URL = process.env.REACT_APP_API_USUARIOS;
 
 const PagRegistro = () => {
@@ -16,7 +17,7 @@ const PagRegistro = () => {
 
   const registrar = async (datos) => {
     try {
-      await axios.post(URL+"/registrar", datos);
+      await axios.post(URL + "/registrar", datos);
       navigate("/ingreso");
     } catch (err) {
       setError(err.response.data);
@@ -31,6 +32,9 @@ const PagRegistro = () => {
         onSubmit={handleSubmit(registrar)}
         data-bs-theme="dark"
       >
+        <div className="text-center">
+          <Person className="pagFormularios__icono bg-white text-primary rounded-circle p-2" />
+        </div>
         <Form.Group className="my-3 mx-4" controlId="formBasicName">
           <Form.Control
             type="text"

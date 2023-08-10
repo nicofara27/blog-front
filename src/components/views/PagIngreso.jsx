@@ -3,6 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/authContext";
 import { useForm } from "react-hook-form";
+import { Person } from "react-bootstrap-icons";
 
 const PagIngreso = () => {
   const [error, setError] = useState();
@@ -31,6 +32,9 @@ const PagIngreso = () => {
         onSubmit={handleSubmit(iniciarSesion)}
         data-bs-theme="dark"
       >
+        <div className="text-center">
+          <Person className="pagFormularios__icono bg-white text-primary rounded-circle p-2" />
+        </div>
         <Form.Group className="my-3 mx-4" controlId="formBasicUserName">
           <Form.Control
             type="text"
