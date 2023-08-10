@@ -12,15 +12,15 @@ const Articulo = ({ articulo }) => {
   };
 
   return (
-    <Row className="articulo mb-4">
-      <Col xs={12} md={7} className="d-flex flex-column justify-content-between">
+    <Row className="articulo mb-5">
+      <Col xs={12} md={6} className="d-flex flex-column justify-content-between">
         <h2 className="fw-bolder">{articulo.titulo}</h2>
         {convertirTexto(articulo.texto)}
         <Button href={`/articulo/${articulo.id}`} variant="outline-primary">
           Ver mas
         </Button>
       </Col>
-      <Col xs={12} md={5}>
+      <Col xs={12} md={6} >
         <div className="articulo__imgContainer">
           <img
             className="articulo__img"
