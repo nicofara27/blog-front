@@ -1,7 +1,7 @@
 @import "bootstrap/dist/css/bootstrap.css";
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 
-
+/* Bootstrap */
 .fs-7 {
   font-size: .9rem;
 }
@@ -54,26 +54,15 @@ color: #e45858 !important;
   --bs-alert-color: #fffffe
 }
 
+/* Navbar */
+#logo {
+  width: 4vw;
+}
 .subir {
   border-radius: 50%;
 }
 
-.articulo__imgContainer {
-  text-align: end;
-  position: relative;
-  min-height: 37vh;
-}
-.articulo__imgContainer::after {
-  content: "";
-  width: 65%;
-  height: 37vh;
-  background-color: #6246ea;
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  z-index: -5 ;
-}
-
+/* Pagina principal */
 .articulo:nth-child(2n+2) {
   flex-direction: row-reverse;
 }
@@ -83,13 +72,31 @@ color: #e45858 !important;
 .articulo:nth-child(2n+2) .articulo__imgContainer::after {
   left: 1rem;
 }
-
+.articulo__imgContainer {
+  text-align: end;
+  position: relative;
+  min-height: 37vh;
+}
+.articulo__imgContainer::after {
+  content: "";
+  width: 90%;
+  height: 37vh;
+  background-color: #6246ea;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: -5 ;
+}
 .articulo__img {
   object-fit: cover;
-  width: 65%;
+  width: 90%;
   height: 37vh;
 }
 
+/* Pag articulo */
+.pagArt__user {
+  width: 50%;
+}
 .pagFormularios {
   min-height: 80vh;
 }
@@ -115,12 +122,6 @@ color: #e45858 !important;
   box-shadow: none;
 }
 
-/* Navbar */
-
-#logo {
-  width: 4vw;
-}
-
 /* Pagina articulo individual */
 
 #art__imgContainer {
@@ -132,8 +133,12 @@ color: #e45858 !important;
 .art__p {
   text-align: justify;
 }
+p img {
+  width: 100%;
+  object-fit: contain;
+}
 
-
+/* Pagina agregarArticulo */
 .formAgregar__titulo {
   height: 10%;
   margin-bottom: 1%;
@@ -143,23 +148,30 @@ color: #e45858 !important;
 }
 
 
-p img {
-  width: 100%;
-  object-fit: contain;
+/* Responsive dispositivos md */
+@media (min-width: 768px ) and (max-width: 992px) {
+  /* Pagina articulo individual */
+  .pagArt__user {
+    width: 90%;
+  }
 }
 
-
-@media (max-width: 768px) {
+/* Responsive dispositivos sm */
+@media (max-width: 767px) {
+  /* Navbar */
   #logo {
     width: 10vw;
   }
-  
+
+  /* Pagina principal */
+  .articulo {
+    flex-direction: column-reverse;
+  }
   .pagFormularios__form {
     width: 80%;
     height: 50vh;
   }
   .articulo__imgContainer {
-    margin-top: 1rem;
     text-align: center;
     min-height: 37vh;
   }
@@ -174,7 +186,11 @@ p img {
     text-align: center;
   }
   .articulo:nth-child(2n+2) {
-    flex-direction: row;
+    flex-direction: column-reverse;
   }
 
+  /* Pagina articulo */
+  .pagArt__user {
+    width: 100%;
+  }
 }
