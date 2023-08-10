@@ -49,7 +49,7 @@ const ArticuloInd = ({ articulo }) => {
       </Row>
     ) : (
       <Row className="w-50 mt-2 align-items-center">
-        <Col xs={4}>
+        <Col xs={3}>
           <img
             src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairStraight&accessoriesType=Blank&hairColor=BrownDark&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light"
             alt=""
