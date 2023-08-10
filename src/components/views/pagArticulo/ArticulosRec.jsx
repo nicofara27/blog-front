@@ -21,8 +21,8 @@ const ArticulosRec = ({ articulo, categoria }) => {
   return (
     <Col className="ms-md-5">
       <h4 className="fw-bolder">Otros articulos que te pueden interesar</h4>
-      {articulos.map((articuloRec) => (
-        articuloRec.titulo!==articulo.titulo 
+      {articulos.map((articuloRec, index) => (
+        articuloRec.titulo!==articulo.titulo  && index < 5
         ? (<ArticuloRecInd key={articuloRec.id} articulo={articuloRec}></ArticuloRecInd>)
         : null
       ))}
