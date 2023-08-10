@@ -22,7 +22,7 @@ const ArticuloInd = ({ articulo }) => {
   };
   const condicionalUsuario =
     usuarioActivo === articulo.nombreUsuario ? (
-      <Row className="w-50 mt-2 align-items-center">
+      <Row className="pagArt__user mt-2 align-items-center">
         <Col>
           <img
             src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairNotTooLong&accessoriesType=Blank&hairColor=Black&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Brown"
@@ -48,15 +48,15 @@ const ArticuloInd = ({ articulo }) => {
         </Col>
       </Row>
     ) : (
-      <Row className="w-50 mt-2 align-items-center">
-        <Col xs={3}>
+      <Row className="pagArt__user mt-2 align-items-center">
+        <Col xs={3} lg={4}>
           <img
             src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairStraight&accessoriesType=Blank&hairColor=BrownDark&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light"
             alt=""
             className="w-100 h-100"
           />
         </Col>
-        <Col xs={6}>
+        <Col xs={9} lg={8}>
           <h5 className="m-0">{articulo.nombreUsuario}</h5>
           <p className="fs-7 m-0">subido {moment(articulo.fecha).fromNow()}</p>
         </Col>
@@ -73,7 +73,7 @@ const ArticuloInd = ({ articulo }) => {
         />
       </div>
       {condicionalUsuario}
-      <div className="mt-5">
+      <div className="mt-4 mt-lg-5">
         <h1 className="fw-bolder">{articulo.titulo}</h1>
 
         <p
