@@ -27,7 +27,7 @@ const PagArticulo = () => {
     <main>
       <Container className="d-flex flex-column flex-md-row justify-content-between ">
         <ArticuloInd articulo={articulo} />
-        <ArticulosRec categoria={articulo.categoria} />
+        <ArticulosRec articulo={articulo} categoria={articulo.categoria} />
       </Container>
     </main>
   );
