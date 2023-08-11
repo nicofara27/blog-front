@@ -97,8 +97,11 @@ color: #e45858 !important;
 .pagArt__user {
   width: 50%;
 }
+
+/* Pagina login/registro */
 .pagFormularios {
   min-height: 80vh;
+  background-image: url("https://t3.ftcdn.net/jpg/03/55/60/70/360_F_355607062_zYMS8jaz4SfoykpWz5oViRVKL32IabTP.jpg");
 }
 .pagFormularios__icono {
   font-size: 4rem;
