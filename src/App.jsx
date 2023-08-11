@@ -6,6 +6,7 @@ import PagArticulo from "./components/views/PagArticulo";
 import PagIngreso from "./components/views/PagIngreso";
 import PagRegistro from "./components/views/PagRegistro";
 import PagAgregarArt from "./components/views/PagAgregarArt";
+import Footer from "./components/common/Footer";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route exact path="/editar/:id" element={<PagAgregarArt/>}></Route>
         <Route exact path="/articulo/:id" element={<PagArticulo/>}></Route>
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
