@@ -8,6 +8,12 @@
 .text-primary {
   color: #6246ea !important;
 }
+.text-danger {
+  color: #e45858 !important;
+}
+.bg-primary {
+  background: #6246ea !important;
+}
 .btn-primary {
   border: none;
   background: #6246ea;
@@ -97,6 +103,9 @@
 .pagArt__user {
   width: 50%;
 }
+.modal__icono {
+  font-size: 4rem;
+}
 
 /* Pagina login/registro */
 .pagFormularios {
@@ -157,6 +166,10 @@ p img {
   #logo {
     width: 6vw;
   }
+  .subir {
+    border-radius: 10px;
+    width: 10%;
+  }
 
   /* Pagina login/registro  */
   .pagFormularios__form {
@@ -174,6 +187,10 @@ p img {
   /* Navbar */
   #logo {
     width: 10vw;
+  }
+  .subir {
+    border-radius: 10px;
+    width: 20%;
   }
 
   /* Pagina principal */
