@@ -1,15 +1,22 @@
-import React, { useContext } from "react";
-import { Col, Row } from "react-bootstrap";
+import React, { useContext, useState } from "react";
+import { Button, Col, Modal, Row } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/authContext";
 import axios from "axios";
 import moment from "moment/moment";
 import "moment/locale/es";
+import { XCircle } from "react-bootstrap-icons";
+
 import DOMPurify from "dompurify";
 const URL = process.env.REACT_APP_API_ARTICULOS;
 
 const ArticuloInd = ({ articulo }) => {
+  const [mostrarModal, setMostrarModal] = useState(false);
+  const cerrarModal = () => setMostrarModal(false);
+  const abrirModal = () => setMostrarModal(true);
+
   const { usuarioActivo } = useContext(AuthContext);
+
   const navigate = useNavigate();
 
   const borrarArticulo = async () => {
@@ -20,6 +27,27 @@ const ArticuloInd = ({ articulo }) => {
       console.log(error);
     }
   };
+
+  const modal = (
+    <Modal show={mostrarModal} onHide={cerrarModal}>
+      <Modal.Body className="text-center pt-4">
+        <XCircle className="text-danger  modal__icono"></XCircle>
+        <h2 className="my-3">¿Estas seguro?</h2>
+        <p className="fs-6 text-secondary">
+          Una vez realizado este proceso no se puede deshacer.
+        </p>
+      </Modal.Body>
+      <Modal.Footer className="pb-4">
+        <Button variant="secondary" onClick={cerrarModal}>
+          Cerrar
+        </Button>
+        <Button variant="danger" onClick={borrarArticulo}>
+          Eliminar
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  );
+
   const condicionalUsuario =
     usuarioActivo === articulo.nombreUsuario ? (
       <Row className="pagArt__user mt-2 align-items-center">
@@ -42,9 +70,10 @@ const ArticuloInd = ({ articulo }) => {
           >
             <i className="bi bi-pencil "></i>
           </Link>
-          <Link onClick={borrarArticulo} className="py-0 px-1 btn btn-danger">
+          <Link onClick={abrirModal} className="py-0 px-1 btn btn-danger">
             <i className="bi bi-trash"></i>
           </Link>
+          {modal}
         </Col>
       </Row>
     ) : (
@@ -73,7 +102,7 @@ const ArticuloInd = ({ articulo }) => {
         />
       </div>
       {condicionalUsuario}
-      <div className="mt-4 mt-lg-5">
+      <div className="my-4 my-lg-5">
         <h1 className="fw-bolder">{articulo.titulo}</h1>
 
         <p
