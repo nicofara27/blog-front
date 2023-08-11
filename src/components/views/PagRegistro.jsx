@@ -28,7 +28,7 @@ const PagRegistro = () => {
     <main className="pagFormularios d-flex flex-column align-items-center justify-content-center">
       <h1 className="fw-semibold">Registrarse</h1>
       <Form
-        className="pagFormularios__form py-4"
+        className="pagFormularios__form py-5"
         onSubmit={handleSubmit(registrar)}
         data-bs-theme="dark"
       >

@@ -28,14 +28,14 @@ const PagIngreso = () => {
     <main className="pagFormularios d-flex flex-column align-items-center justify-content-center">
       <h1 className="fw-semibold">Ingresá</h1>
       <Form
-        className="pagFormularios__form py-4"
+        className="pagFormularios__form py-5"
         onSubmit={handleSubmit(iniciarSesion)}
         data-bs-theme="dark"
       >
         <div className="text-center">
           <Person className="pagFormularios__icono bg-white text-primary rounded-circle p-2" />
         </div>
-        <Form.Group className="my-3 mx-4" controlId="formBasicUserName">
+        <Form.Group className="m-4 my-lg-3" controlId="formBasicUserName">
           <Form.Control
             type="text"
             placeholder="Nombre de usuario"
