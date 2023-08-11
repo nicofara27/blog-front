@@ -13,7 +13,7 @@ const PagPrincipal = () => {
   useEffect(() => {
     const traerArticulos = async () => {
       try {
-        const respuesta = await axios.get(URL+`${categoria}`);
+        const respuesta = await axios.get(URL + `${categoria}`);
         setArticulos(respuesta.data.reverse());
       } catch (err) {
         console.log(err);
