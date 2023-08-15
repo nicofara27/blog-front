@@ -12,6 +12,7 @@ const PagArticulo = () => {
   const { id } = useParams();
 
   useEffect(() => {
+    // Funcion para listar un articulo en particular por su id
     const traerArticulo = async () => {
       try {
         const respuesta = await axios.get(URL + `/${id}`);

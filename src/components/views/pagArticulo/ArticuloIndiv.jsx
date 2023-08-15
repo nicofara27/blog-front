@@ -19,6 +19,7 @@ const ArticuloInd = ({ articulo }) => {
 
   const navigate = useNavigate();
 
+  // Funcion para eliminar articulo
   const borrarArticulo = async () => {
     try {
       await axios.delete(URL + `/${articulo.id}`, { withCredentials: true });
@@ -28,6 +29,7 @@ const ArticuloInd = ({ articulo }) => {
     }
   };
 
+  // Contiene el modal que se abre al presionar el boton de borrar articulo
   const modal = (
     <Modal show={mostrarModal} onHide={cerrarModal}>
       <Modal.Body className="text-center pt-4">
@@ -48,6 +50,7 @@ const ArticuloInd = ({ articulo }) => {
     </Modal>
   );
 
+  // Componente condicional muestra los botones de editar y borrar articulo en caso de que el usuario activo sea el creador del arituclo
   const condicionalUsuario =
     usuarioActivo === articulo.nombreUsuario ? (
       <Row className="pagArt__user mt-2 align-items-center">
@@ -104,7 +107,7 @@ const ArticuloInd = ({ articulo }) => {
       {condicionalUsuario}
       <div className="my-4 my-lg-5">
         <h1 className="fw-bolder">{articulo.titulo}</h1>
-
+        {/* Convierte el texto que se sube con react-quill con etiquetas al formato HTMLDocument */}
         <p
           className="mt-4 art__p"
           dangerouslySetInnerHTML={{

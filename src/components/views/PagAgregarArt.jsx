@@ -8,15 +8,18 @@ import { useLocation, useNavigate } from "react-router-dom";
 const URL = process.env.REACT_APP_API_ARTICULOS;
 
 const PagAgregarArt = () => {
-  const art = useLocation().state;
   const [titulo, setTitulo] = useState(art ? art.titulo : "");
   const [texto, setTexto] = useState(art ? art.texto : "");
   const [img, setImg] = useState(art ? art.img : "");
   const [categoria, setCategoria] = useState(art ? art.categoria : "");
   const [error, setError] = useState(false);
 
+  // Contiene los datos de un articulo en el caso de que se lo quiera editar
+  const art = useLocation().state;
+
   const navigate = useNavigate();
 
+  // Funcion para subir o editar un articulo. Primero comprueba que los casilleros no esten vacios
   const subirArticulo = async (e) => {
     e.preventDefault();
     if (titulo === "" || texto === "" || img === "" || categoria === "") {
@@ -36,7 +39,7 @@ const PagAgregarArt = () => {
               { withCredentials: true }
             )
           : await axios.post(
-              URL+"/subir",
+              URL + "/subir",
               {
                 titulo,
                 texto,
@@ -55,6 +58,7 @@ const PagAgregarArt = () => {
 
   return (
     <main className="my-5">
+      {/* Alert que aparece en el caso de que algun campo este vacio */}
       {error ? (
         <Alert className="mx-5 mb-3" variant="danger">
           No puede haber campos vacios

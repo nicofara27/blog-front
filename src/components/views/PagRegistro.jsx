@@ -15,6 +15,7 @@ const PagRegistro = () => {
     formState: { errors },
   } = useForm();
 
+  // Funcion para registrar usuario
   const registrar = async (datos) => {
     try {
       await axios.post(URL + "/registrar", datos);
@@ -56,7 +57,6 @@ const PagRegistro = () => {
             {errors.nombreUsuario?.message}
           </Form.Text>
         </Form.Group>
-
         <Form.Group className="my-3 mx-4" controlId="formBasicEmail">
           <Form.Control
             type="email"
@@ -73,7 +73,6 @@ const PagRegistro = () => {
           />
           <Form.Text className="text-danger">{errors.email?.message}</Form.Text>
         </Form.Group>
-
         <Form.Group className="my-3 mx-4" controlId="formBasicPassword">
           <Form.Control
             type="password"

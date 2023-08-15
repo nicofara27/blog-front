@@ -9,6 +9,7 @@ export const AuthContextProvider = ({ children }) => {
     JSON.parse(localStorage.getItem("usuarioActivo")) || null
   );
 
+  // Funcion para iniciar sesion
   const login = async (datos) => {
     const res = await axios.post(URL + "/login", datos, {
       withCredentials: true,
@@ -17,6 +18,7 @@ export const AuthContextProvider = ({ children }) => {
     setUsuarioActivo(res.data.nombreUsuario);
   };
 
+  // Funcion para cerrar sesion
   const logout = async (datos) => {
     await axios.post(
       URL + "/logout",
@@ -25,7 +27,7 @@ export const AuthContextProvider = ({ children }) => {
     );
     setUsuarioActivo(null);
   };
-
+  // Establece el usuario activo en el local storage cada vez que cambia el state usuarioActivo
   useEffect(() => {
     localStorage.setItem("usuarioActivo", JSON.stringify(usuarioActivo));
   }, [usuarioActivo]);

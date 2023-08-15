@@ -7,6 +7,7 @@ const Menu = () => {
   const { usuarioActivo, logout } = useContext(AuthContext);
   const navigate = useNavigate();
 
+  // Funcion para cerrar sesion
   const cerrarSesion = () => {
     logout();
     navigate("/");

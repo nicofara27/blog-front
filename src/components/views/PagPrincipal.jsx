@@ -11,6 +11,7 @@ const PagPrincipal = () => {
   const categoria = useLocation().search;
 
   useEffect(() => {
+    // Funcion para traer los articulos
     const traerArticulos = async () => {
       try {
         const respuesta = await axios.get(URL + `${categoria}`);

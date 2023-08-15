@@ -15,6 +15,7 @@ const PagIngreso = () => {
     formState: { errors },
   } = useForm();
 
+  // Funcion para iniciar sesion
   const iniciarSesion = async (datos) => {
     try {
       await login(datos);
