@@ -8,11 +8,11 @@ import { useLocation, useNavigate } from "react-router-dom";
 const URL = process.env.REACT_APP_API_ARTICULOS;
 
 const PagAgregarArt = () => {
-  const art = useLocation().state;
-  const [titulo, setTitulo] = useState(art ? art.titulo : "");
-  const [texto, setTexto] = useState(art ? art.texto : "");
-  const [img, setImg] = useState(art ? art.img : "");
-  const [categoria, setCategoria] = useState(art ? art.categoria : "");
+  const artParaEditar = useLocation().state;
+  const [titulo, setTitulo] = useState(artParaEditar ? artParaEditar.titulo : "");
+  const [texto, setTexto] = useState(artParaEditar ? artParaEditar.texto : "");
+  const [img, setImg] = useState(artParaEditar ? artParaEditar.img : "");
+  const [categoria, setCategoria] = useState(artParaEditar ? artParaEditar.categoria : "");
   const [error, setError] = useState(false);
 
   // Contiene los datos de un articulo en el caso de que se lo quiera editar
@@ -26,15 +26,15 @@ const PagAgregarArt = () => {
       setError(true);
     } else {
       try {
-        art
+        artParaEditar
           ? await axios.put(
-              URL + `/${art.id}`,
+              URL + `/${artParaEditar.id}`,
               {
                 titulo,
                 texto,
                 img,
                 categoria,
-                fecha: art.fecha,
+                fecha: artParaEditar.fecha,
               },
               { withCredentials: true }
             )
@@ -117,7 +117,7 @@ const PagAgregarArt = () => {
                   Guardar como borrador
                 </Button>
                 <Button type="submit" variant="primary">
-                  {art ? "Editar" : "Subir"}
+                  {artParaEditar ? "Editar" : "Subir"}
                 </Button>
               </div>
             </div>
