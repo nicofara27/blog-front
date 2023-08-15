@@ -71,8 +71,12 @@ const PagAgregarArt = () => {
           className="d-flex flex-column flex-lg-row justify-content-between"
           onSubmit={subirArticulo}
         >
-          <Col xs={12} lg={8} className="mb-2 mb-lg-0">
-            <div className="formAgregar__titulo">
+          <Col
+            xs={12}
+            lg={8}
+            className="d-flex flex-column justify-content-between"
+          >
+            <div className="formAgregar__titulo mb-3 mb-lg-0">
               <Form.Control
                 type="text"
                 value={titulo}
@@ -80,7 +84,7 @@ const PagAgregarArt = () => {
                 placeholder="Titulo"
               />
             </div>
-            <div className="formAgregar__quill">
+            <div className="formAgregar__quill ">
               <ReactQuill
                 className=""
                 theme="snow"
@@ -94,7 +98,7 @@ const PagAgregarArt = () => {
             lg={4}
             className="d-flex flex-column justify-content-center"
           >
-            <div className="border p-2 ms-lg-3 mt-3 h-50 order-1">
+            <div className="h-50 order-1 order-lg-0 p-2 ms-lg-3 mt-3 mt-lg-0 mb-lg-3 border">
               <h4 className="fw-semibold">Publicar</h4>
               <p className="m-0">
                 <strong>Estatus:</strong> Borrador
@@ -117,7 +121,7 @@ const PagAgregarArt = () => {
                 </Button>
               </div>
             </div>
-            <div className="border p-2 ms-lg-3 mt-3 mt-lg-0 h-50">
+            <div className="h-50 border p-2 ms-lg-3 mt-3 mt-lg-0">
               <h4 className="fw-semibold">Categoria</h4>
               <Form.Check
                 label="Arte"
