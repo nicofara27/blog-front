@@ -161,13 +161,18 @@ p img {
 
 .formAgregar__titulo {
   height: 10%;
-  margin-bottom: 1%;
 }
 .formAgregar__quill {
-  height: 89%;
-}
-.quill {
   height: 88%;
+}
+.quill{
+  height: 100%;
+}
+.ql-toolbar {
+  height: 20%;
+}
+.ql-container {
+  height: 80% !important;
 }
 
 /* Footer */
@@ -194,12 +199,8 @@ p img {
   .pagArt__user {
     width: 90%;
   }
-
-  /* Pagina agregar articulo */
   .formAgregar__quill {
     height: 25vh;
-    overflow-y: scroll;
-    border-bottom: 1px solid rgb(210, 210, 210);
   }
 }
 
@@ -247,7 +248,5 @@ p img {
   /* Pagina agregar articulo */
   .formAgregar__quill {
     height: 25vh;
-    overflow-y: scroll;
-    border-bottom: 1px solid rgb(210, 210, 210);
   }
 }
