@@ -16,7 +16,7 @@
   color: #6246ea !important;
 }
 .text-danger {
-  color: #e45858 !important;
+  color: #ea5c46 !important;
 }
 .bg-primary {
   background: #6246ea !important;
@@ -49,21 +49,21 @@
 }
 .btn-danger {
   border: none;
-  background: #e45858;
-  --bs-btn--hover-bg: #c83f3c;
-  --bs-btn-active-bg: #c83f3c;
+  background: #ea5c46;
+  --bs-btn-hover-bg: #ce441a;
+  --bs-btn-active-bg: #ce441a;
 }
 .btn-outline-danger:disabled {
-  --bs-btn-border-color: #e45858;
-  --bs-btn-color: #e45858;
+  --bs-btn-border-color: #ea5c46;
+  --bs-btn-color: #ea5c46;
 }
 
 .text-danger {
-  color: #e45858 !important;
+  color: #ea5c46 !important;
 }
 
 .alert-danger {
-  --bs-alert-bg: #e45858;
+  --bs-alert-bg: #ea5c46;
   --bs-alert-color: #fffffe;
 }
 
@@ -76,6 +76,35 @@
 }
 
 /* Pagina principal */
+.pagPrincipal__titulo {
+  text-align: center;
+  margin-bottom: 4rem;
+  font-weight: 700;
+  font-size: 4rem;
+}
+.pagPrincipal__titulo::before {
+  margin-right: 5rem;
+  content: " ";
+  display: inline-block;
+  background: #6246ea;
+  width: 20rem;
+  height: 2px;
+  vertical-align: middle;
+}
+.pagPrincipal__titulo::after {
+  margin-left: 5rem;
+  content: " ";
+  display: inline-block;
+  background: #6246ea;
+  width: 20rem;
+  height: 2px;
+  vertical-align: middle;
+}
+.pagPrincipal__texto {
+  font-size: 3rem;
+  text-align: center;
+}
+
 .articulo:nth-child(2n + 2) {
   flex-direction: row-reverse;
 }
@@ -165,7 +194,7 @@ p img {
 .formAgregar__quill {
   height: 88%;
 }
-.quill{
+.quill {
   height: 100%;
 }
 .ql-toolbar {
@@ -188,6 +217,16 @@ p img {
   .subir {
     border-radius: 10px;
     width: 10%;
+  }
+
+  /* Pagina principal */
+  .pagPrincipal__titulo::before {
+    margin-right: 2.5rem;
+    width: 10rem;
+  }
+  .pagPrincipal__titulo::after {
+    margin-left: 2.5rem;
+    width: 10rem;
   }
 
   /* Pagina login/registro  */
@@ -216,6 +255,14 @@ p img {
   }
 
   /* Pagina principal */
+  .pagPrincipal__titulo::before {
+    margin-right: 1.25rem;
+    width: 3rem;
+  }
+  .pagPrincipal__titulo::after {
+    margin-left: 1.25rem;
+    width: 3rem;
+  }
   .articulo {
     flex-direction: column-reverse;
   }
