@@ -24,11 +24,20 @@ const PagPrincipal = () => {
   }, [categoria]);
 
   return (
-    <main className="my-lg-4">
+    <main className="asd">
       <Container>
-        {articulos.map((articulo) => (
-          <Articulo key={articulo.id} articulo={articulo}></Articulo>
-        ))}
+        {categoria ? (
+          <h1 className="pagPrincipal__titulo">{categoria.slice(11)}</h1>
+        ) : null}
+        {articulos.length > 0 ? (
+          articulos.map((articulo) => (
+            <Articulo key={articulo.id} articulo={articulo}></Articulo>
+          ))
+        ) : (
+          <h1 className="pagPrincipal__texto">
+            Por el momento no hay articulos que pertenezcan a esta categoria
+          </h1>
+        )}
       </Container>
     </main>
   );
