@@ -15,7 +15,7 @@ const Menu = () => {
 
   return (
     <Navbar expand="lg">
-      <Container>
+      <Container fluid>
         <Navbar.Brand id="logo" href="/">
           <img
             className="w-100"
