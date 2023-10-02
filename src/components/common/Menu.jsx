@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Button, Container, Nav, Navbar } from "react-bootstrap";
+import { Button, Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
 import { AuthContext } from "../context/authContext";
 import { useNavigate } from "react-router-dom";
 
@@ -15,7 +15,7 @@ const Menu = () => {
 
   return (
     <Navbar expand="lg">
-      <Container fluid>
+      <Container>
         <Navbar.Brand id="logo" href="/">
           <img
             className="w-100"
@@ -45,18 +45,12 @@ const Menu = () => {
               Tecnologia
             </Nav.Link>
             {usuarioActivo ? (
-              <div className="d-flex flex-column flex-lg-row">
-                <Nav.Link disabled>{usuarioActivo}</Nav.Link>
-                <Nav.Link
-                  className="text-danger me-lg-4"
-                  onClick={cerrarSesion}
-                >
-                  Logout
-                </Nav.Link>
-                <Button className="subir px-2 fs-5" href="/subir">
-                  Subir
-                </Button>
-              </div>
+              <NavDropdown className="fw-bold" title={usuarioActivo} id="basic-nav-dropdown">
+                <NavDropdown.Item href="/subir">Subir</NavDropdown.Item>
+                <NavDropdown.Item className="text-danger" onClick={cerrarSesion}>
+                  Logout{" "}
+                </NavDropdown.Item>
+              </NavDropdown>
             ) : (
               <Nav.Link
                 className="me-lg-4 bg-primary rounded-pill px-3 text-light"
