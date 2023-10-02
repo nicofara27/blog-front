@@ -9,10 +9,14 @@ const URL = process.env.REACT_APP_API_ARTICULOS;
 
 const PagAgregarArt = () => {
   const artParaEditar = useLocation().state;
-  const [titulo, setTitulo] = useState(artParaEditar ? artParaEditar.titulo : "");
+  const [titulo, setTitulo] = useState(
+    artParaEditar ? artParaEditar.titulo : ""
+  );
   const [texto, setTexto] = useState(artParaEditar ? artParaEditar.texto : "");
   const [img, setImg] = useState(artParaEditar ? artParaEditar.img : "");
-  const [categoria, setCategoria] = useState(artParaEditar ? artParaEditar.categoria : "");
+  const [categoria, setCategoria] = useState(
+    artParaEditar ? artParaEditar.categoria : ""
+  );
   const [error, setError] = useState(false);
 
   // Contiene los datos de un articulo en el caso de que se lo quiera editar
@@ -58,15 +62,8 @@ const PagAgregarArt = () => {
 
   return (
     <main className="my-5">
-      {/* Alert que aparece en el caso de que algun campo este vacio */}
-      {error ? (
-        <Alert className="mx-5 mb-3" variant="danger">
-          No puede haber campos vacios
-        </Alert>
-      ) : (
-        []
-      )}
       <Container>
+        {/* Alert que aparece en el caso de que algun campo este vacio */}
         <Form
           className="d-flex flex-column flex-lg-row justify-content-between"
           onSubmit={subirArticulo}
@@ -120,10 +117,18 @@ const PagAgregarArt = () => {
                   {artParaEditar ? "Editar" : "Subir"}
                 </Button>
               </div>
+              {error ? (
+                <Alert className="py-0 my-2" variant="danger">
+                  No puede haber campos vacios
+                </Alert>
+              ) : (
+                []
+              )}
             </div>
             <div className="h-50 border p-2 ms-lg-3 mt-3 mt-lg-0">
               <h4 className="fw-semibold">Categoria</h4>
-              <Form.Check
+              <Form.Check 
+                id="checkArte"
                 label="Arte"
                 name="categoria"
                 type="radio"
@@ -131,7 +136,8 @@ const PagAgregarArt = () => {
                 onChange={(e) => setCategoria(e.target.value)}
                 checked={categoria === "arte"}
               />
-              <Form.Check
+              <Form.Check 
+                id="checkMusica"
                 label="Musica"
                 name="categoria"
                 type="radio"
@@ -139,7 +145,8 @@ const PagAgregarArt = () => {
                 onChange={(e) => setCategoria(e.target.value)}
                 checked={categoria === "musica"}
               />
-              <Form.Check
+              <Form.Check 
+                id="checkCine"
                 label="Cine"
                 name="categoria"
                 type="radio"
@@ -147,7 +154,8 @@ const PagAgregarArt = () => {
                 onChange={(e) => setCategoria(e.target.value)}
                 checked={categoria === "cine"}
               />
-              <Form.Check
+              <Form.Check 
+                id="checkComida"
                 label="Comida"
                 name="categoria"
                 type="radio"
@@ -155,7 +163,8 @@ const PagAgregarArt = () => {
                 onChange={(e) => setCategoria(e.target.value)}
                 checked={categoria === "comida"}
               />
-              <Form.Check
+              <Form.Check 
+                id="checkCiencia"
                 label="Ciencia"
                 name="categoria"
                 type="radio"
@@ -163,7 +172,8 @@ const PagAgregarArt = () => {
                 onChange={(e) => setCategoria(e.target.value)}
                 checked={categoria === "ciencia"}
               />
-              <Form.Check
+              <Form.Check 
+                id="checkTecnologia"
                 label="Tecnologia"
                 name="categoria"
                 type="radio"
