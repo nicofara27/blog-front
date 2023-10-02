@@ -71,6 +71,9 @@
 #logo {
   width: 4vw;
 }
+.dropdown-menu  {
+  padding: .25rem;
+}
 .subir {
   border-radius: 50%;
 }
