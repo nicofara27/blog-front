@@ -86,20 +86,20 @@
   font-size: 4rem;
 }
 .pagPrincipal__titulo::before {
-  margin-right: 5rem;
+  margin-right: 2.5rem;
   content: " ";
   display: inline-block;
   background: #6246ea;
-  width: 20rem;
+  width: 16.5rem;
   height: 2px;
   vertical-align: middle;
 }
 .pagPrincipal__titulo::after {
-  margin-left: 5rem;
+  margin-left: 2.5rem;
   content: " ";
   display: inline-block;
   background: #6246ea;
-  width: 20rem;
+  width: 16.5rem;
   height: 2px;
   vertical-align: middle;
 }
@@ -224,11 +224,11 @@ p img {
 
   /* Pagina principal */
   .pagPrincipal__titulo::before {
-    margin-right: 2.5rem;
+    margin-right: 1.5rem;
     width: 10rem;
   }
   .pagPrincipal__titulo::after {
-    margin-left: 2.5rem;
+    margin-left: 1.5rem;
     width: 10rem;
   }
 
@@ -259,12 +259,14 @@ p img {
 
   /* Pagina principal */
   .pagPrincipal__titulo::before {
-    margin-right: 1.25rem;
-    width: 3rem;
+    display: block;
+    
+    width: 100%;
   }
   .pagPrincipal__titulo::after {
-    margin-left: 1.25rem;
-    width: 3rem;
+    display: block;
+    margin: 1rem auto;
+    width: 50%;
   }
   .articulo {
     flex-direction: column-reverse;
