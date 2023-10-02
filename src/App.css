@@ -79,6 +79,10 @@
 }
 
 /* Pagina principal */
+.pagPrincipal {
+  flex-grow: 1;
+  margin-top: 2rem;
+}
 .pagPrincipal__titulo {
   text-align: center;
   margin-bottom: 4rem;
@@ -103,6 +107,15 @@
   height: 2px;
   vertical-align: middle;
 }
+.pagPrincipal__cargando{
+  text-align: center;
+}
+.pagPrincipal__cargando h1{
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
 .pagPrincipal__texto {
   font-size: 3rem;
   text-align: center;
