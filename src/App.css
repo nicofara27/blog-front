@@ -73,7 +73,9 @@
 }
 .dropdown-menu  {
   padding: .25rem;
+  --bs-dropdown-link-active-bg: #6246ea;
 }
+ 
 .subir {
   border-radius: 50%;
 }
