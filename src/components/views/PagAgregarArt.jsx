@@ -1,7 +1,7 @@
 import axios from "axios";
 import moment from "moment/moment";
 import React, { useState } from "react";
-import { Alert, Button, Col, Container, Form } from "react-bootstrap";
+import { Button, Col, Container, Form } from "react-bootstrap";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -109,25 +109,21 @@ const PagAgregarArt = () => {
                 value={img}
                 onChange={(e) => setImg(e.target.value)}
               />
-              <div className="d-flex justify-content-between mt-3 order-0">
-                <Button disabled variant="outline-danger">
-                  Guardar como borrador
-                </Button>
-                <Button type="submit" variant="primary">
-                  {artParaEditar ? "Editar" : "Subir"}
-                </Button>
-              </div>
+              <Button className="w-100 mt-3" type="submit" variant="primary">
+                {artParaEditar ? "Editar" : "Subir"}
+              </Button>
+
               {error ? (
-                <Alert className="py-0 my-2" variant="danger">
+                <p className="text-danger my-2 text-center fw-semibold">
                   No puede haber campos vacios
-                </Alert>
+                </p>
               ) : (
-                []
+                <br className="my-1"></br>
               )}
             </div>
             <div className="h-50 border p-2 ms-lg-3 mt-3 mt-lg-0">
               <h4 className="fw-semibold">Categoria</h4>
-              <Form.Check 
+              <Form.Check
                 id="checkArte"
                 label="Arte"
                 name="categoria"
@@ -136,7 +132,7 @@ const PagAgregarArt = () => {
                 onChange={(e) => setCategoria(e.target.value)}
                 checked={categoria === "arte"}
               />
-              <Form.Check 
+              <Form.Check
                 id="checkMusica"
                 label="Musica"
                 name="categoria"
@@ -145,7 +141,7 @@ const PagAgregarArt = () => {
                 onChange={(e) => setCategoria(e.target.value)}
                 checked={categoria === "musica"}
               />
-              <Form.Check 
+              <Form.Check
                 id="checkCine"
                 label="Cine"
                 name="categoria"
@@ -154,7 +150,7 @@ const PagAgregarArt = () => {
                 onChange={(e) => setCategoria(e.target.value)}
                 checked={categoria === "cine"}
               />
-              <Form.Check 
+              <Form.Check
                 id="checkComida"
                 label="Comida"
                 name="categoria"
@@ -163,7 +159,7 @@ const PagAgregarArt = () => {
                 onChange={(e) => setCategoria(e.target.value)}
                 checked={categoria === "comida"}
               />
-              <Form.Check 
+              <Form.Check
                 id="checkCiencia"
                 label="Ciencia"
                 name="categoria"
@@ -172,7 +168,7 @@ const PagAgregarArt = () => {
                 onChange={(e) => setCategoria(e.target.value)}
                 checked={categoria === "ciencia"}
               />
-              <Form.Check 
+              <Form.Check
                 id="checkTecnologia"
                 label="Tecnologia"
                 name="categoria"
