@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Articulo from "./Articulo";
 import { Container, Spinner } from "react-bootstrap";
-import axios from "axios";
 import { useLocation } from "react-router";
 import { traerArticulos } from "../../../helpers/queries";
-const URL = process.env.REACT_APP_API_ARTICULOS;
 
 const CondicionalArticulos = () => {
   const [articulos, setArticulos] = useState(null);
