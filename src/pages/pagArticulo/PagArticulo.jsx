@@ -3,8 +3,7 @@ import ArticuloInd from "./components/ArticuloIndiv";
 import ArticulosRec from "./components/ArticulosRec";
 import { Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import axios from "axios";
-const URL = process.env.REACT_APP_API_ARTICULOS;
+import { traerArticulo } from "../../helpers/queries";
 
 const PagArticulo = () => {
   const [articulo, setArticulo] = useState({});
@@ -12,15 +11,13 @@ const PagArticulo = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    const traerArticulo = async () => {
-      try {
-        const respuesta = await axios.get(URL + `/${id}`);
+    traerArticulo(id).then((respuesta) => {
+      if (respuesta.status === 200) {
         setArticulo(respuesta.data);
-      } catch (err) {
-        console.log(err);
+      } else {
+        console.log(respuesta);
       }
-    };
-    traerArticulo();
+    });
   }, []);
 
   return (

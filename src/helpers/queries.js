@@ -62,3 +62,12 @@ export const traerArticulos = async (categoria) => {
     return err;
   }
 };
+
+export const traerArticulo = async (id) => {
+  try {
+    const respuesta = await axios.get(URL_ARTICULOS + `/${id}`);
+    return respuesta;
+  } catch (err) {
+    return err;
+  }
+};
