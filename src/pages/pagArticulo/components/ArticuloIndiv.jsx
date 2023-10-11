@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Button, Col, Modal, Row } from "react-bootstrap";
+import { Button, Col, Image, Modal, Placeholder, Row } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../context/authContext";
 import axios from "axios";
@@ -95,26 +95,48 @@ const ArticuloInd = ({ articulo }) => {
       </Row>
     );
 
+  const condicionalCargando =
+    Object.keys(articulo).length === 0 ? (
+      <>
+        <Placeholder as="div" animation="glow" id="art__imgContainer">
+          <Placeholder xs={12} className="art__img w-100 h-100" />
+        </Placeholder>
+        <Placeholder as="h1" animation="glow" className="fw-bolder">
+          <Placeholder xs={6} className="art__user--placeholder" />
+        </Placeholder>
+        <Placeholder as="h1" animation="glow" className="fw-bolder">
+          <Placeholder xs={12} className="art__titulo--placeholder" />
+        </Placeholder>
+        <Placeholder as="p" animation="glow" className="fw-bolder">
+          <Placeholder xs={12} className="art__p--placeholder" />
+        </Placeholder>
+      </>
+    ) : (
+      <>
+        <div id="art__imgContainer">
+          <img
+            src={articulo.img}
+            alt={articulo.titulo}
+            className="art__img w-100 h-100"
+          />
+        </div>
+        {condicionalUsuario}
+        <div className="my-4 my-lg-5">
+          <h1 className="fw-bolder">{articulo.titulo}</h1>
+          {/* Convierte el texto que se sube con react-quill con etiquetas al formato HTMLDocument */}
+          <p
+            className="mt-4 art__p"
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(articulo.texto),
+            }}
+          ></p>
+        </div>
+      </>
+    );
+
   return (
     <Col xs={12} md={8}>
-      <div id="art__imgContainer">
-        <img
-          src={articulo.img}
-          alt={articulo.titulo}
-          className="art__img w-100 h-100"
-        />
-      </div>
-      {condicionalUsuario}
-      <div className="my-4 my-lg-5">
-        <h1 className="fw-bolder">{articulo.titulo}</h1>
-        {/* Convierte el texto que se sube con react-quill con etiquetas al formato HTMLDocument */}
-        <p
-          className="mt-4 art__p"
-          dangerouslySetInnerHTML={{
-            __html: DOMPurify.sanitize(articulo.texto),
-          }}
-        ></p>
-      </div>
+      {condicionalCargando}
     </Col>
   );
 };
