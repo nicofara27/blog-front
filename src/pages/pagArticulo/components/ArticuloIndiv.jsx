@@ -8,6 +8,7 @@ import "moment/locale/es";
 import { XCircle } from "react-bootstrap-icons";
 
 import DOMPurify from "dompurify";
+import { borrarArticulo } from "../../../helpers/queries";
 const URL = process.env.REACT_APP_API_ARTICULOS;
 
 const ArticuloInd = ({ articulo }) => {
@@ -19,15 +20,15 @@ const ArticuloInd = ({ articulo }) => {
 
   const navigate = useNavigate();
 
-  // Funcion para eliminar articulo
-  const borrarArticulo = async () => {
-    try {
-      await axios.delete(URL + `/${articulo.id}`, { withCredentials: true });
-      navigate("/");
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const borrarArt = () =>{
+    borrarArticulo(articulo.id).then((respuesta) => {
+      if(respuesta.status === 200){
+        navigate("/");
+      } else {
+        console.log(respuesta.data)
+      }
+    })
+  }
 
   // Contiene el modal que se abre al presionar el boton de borrar articulo
   const modal = (
@@ -43,7 +44,7 @@ const ArticuloInd = ({ articulo }) => {
         <Button variant="secondary" onClick={cerrarModal}>
           Cerrar
         </Button>
-        <Button variant="danger" onClick={borrarArticulo}>
+        <Button variant="danger" onClick={borrarArt}>
           Eliminar
         </Button>
       </Modal.Footer>

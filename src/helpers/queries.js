@@ -71,3 +71,14 @@ export const traerArticulo = async (id) => {
     return err;
   }
 };
+
+export const borrarArticulo = async (id) => {
+  try {
+    const respuesta = await axios.delete(URL_ARTICULOS + `/${id}`, {
+      withCredentials: true,
+    });
+    return respuesta;
+  } catch (error) {
+    return error;
+  }
+};
