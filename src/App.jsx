@@ -1,11 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Menu from "./components/common/Menu";
-import PagPrincipal from "./components/views/PagPrincipal";
-import PagArticulo from "./components/views/PagArticulo";
-import PagIngreso from "./components/views/PagIngreso";
-import PagRegistro from "./components/views/PagRegistro";
-import PagAgregarArt from "./components/views/PagAgregarArt";
+import PagPrincipal from "./pages/pagPrincipal/PagPrincipal";
+import PagArticulo from "./pages/pagArticulo/PagArticulo";
+import PagIngreso from "./pages/pagIngreso/PagIngreso";
+import PagRegistro from "./pages/pagRegistro/PagRegistro";
+import PagAgregarArt from "./pages/pagAgregarArt/PagAgregarArt";
 import Footer from "./components/common/Footer";
 
 function App() {

@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
-import { Button, Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
-import { AuthContext } from "../context/authContext";
+import { useContext } from "react";
+import { Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
+import { AuthContext } from "../../context/authContext";
 import { useNavigate } from "react-router-dom";
 
 const Menu = () => {
@@ -45,9 +45,16 @@ const Menu = () => {
               Tecnologia
             </Nav.Link>
             {usuarioActivo ? (
-              <NavDropdown className="fw-bold" title={usuarioActivo} id="basic-nav-dropdown">
+              <NavDropdown
+                className="fw-bold"
+                title={usuarioActivo}
+                id="basic-nav-dropdown"
+              >
                 <NavDropdown.Item href="/subir">Subir</NavDropdown.Item>
-                <NavDropdown.Item className="text-danger" onClick={cerrarSesion}>
+                <NavDropdown.Item
+                  className="text-danger"
+                  onClick={cerrarSesion}
+                >
                   Logout{" "}
                 </NavDropdown.Item>
               </NavDropdown>

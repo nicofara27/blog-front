@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import ArticuloInd from "./pagArticulo/ArticuloIndiv";
-import ArticulosRec from "./pagArticulo/ArticulosRec";
+import ArticuloInd from "./components/ArticuloIndiv";
+import ArticulosRec from "./components/ArticulosRec";
 import { Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import axios from "axios";

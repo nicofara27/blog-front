@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Button, Col, Modal, Row } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../context/authContext";
+import { AuthContext } from "../../../context/authContext";
 import axios from "axios";
 import moment from "moment/moment";
 import "moment/locale/es";

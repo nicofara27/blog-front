@@ -1,4 +1,4 @@
-import CondicionalArticulos from "./pagPrincipal/CondicionalArticulos";
+import CondicionalArticulos from "./components/CondicionalArticulos";
 
 const PagPrincipal = () => {
   return (
