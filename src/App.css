@@ -160,6 +160,26 @@
 .modal__icono {
   font-size: 4rem;
 }
+.art__p--placeholder {
+  margin-top: 2rem;
+  height: 40vh;
+}
+.art__user--placeholder {
+  margin-top: 1.5rem;
+  height: 10vh;
+}
+.art__titulo--placeholder {
+  margin-top: 3rem;
+  height: 5vh;
+}
+
+.artRec__titulo--placeholder {
+  height: 10vh;
+  margin-bottom: 1rem;
+}
+.artRec__div--placeholder {
+  height: 60vh;
+}
 
 /* Pagina login/registro */
 .pagFormularios {
