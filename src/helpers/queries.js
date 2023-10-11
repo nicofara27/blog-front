@@ -34,23 +34,31 @@ export const editarArticulo = async ({
   );
 };
 
-
 export const agregarArticulo = async ({
-    titulo,
-          texto,
-          img,
-          categoria,
-          fecha
+  titulo,
+  texto,
+  img,
+  categoria,
+  fecha,
 }) => {
-    await axios.post(
-        URL_ARTICULOS + "/subir",
-        {
-          titulo,
-          texto,
-          img,
-          categoria,
-          fecha
-        },
-        { withCredentials: true }
-      )
-}
+  await axios.post(
+    URL_ARTICULOS + "/subir",
+    {
+      titulo,
+      texto,
+      img,
+      categoria,
+      fecha,
+    },
+    { withCredentials: true }
+  );
+};
+
+export const traerArticulos = async (categoria) => {
+  try {
+    const respuesta = await axios.get(URL_ARTICULOS + `${categoria}`);
+    return respuesta;
+  } catch (err) {
+    return err;
+  }
+};

@@ -3,6 +3,7 @@ import Articulo from "./Articulo";
 import { Container, Spinner } from "react-bootstrap";
 import axios from "axios";
 import { useLocation } from "react-router";
+import { traerArticulos } from "../../../helpers/queries";
 const URL = process.env.REACT_APP_API_ARTICULOS;
 
 const CondicionalArticulos = () => {
@@ -11,15 +12,13 @@ const CondicionalArticulos = () => {
   const categoria = useLocation().search;
 
   useEffect(() => {
-    const traerArticulos = async () => {
-      try {
-        const respuesta = await axios.get(URL + `${categoria}`);
+    traerArticulos(categoria).then((respuesta) => {
+      if(respuesta.status === 200){
         setArticulos(respuesta.data.reverse());
-      } catch (err) {
-        console.log(err);
+      } else {
+        console.log(respuesta)
       }
-    };
-    traerArticulos();
+    });
   }, [categoria]);
 
   const condicionalCargando =
