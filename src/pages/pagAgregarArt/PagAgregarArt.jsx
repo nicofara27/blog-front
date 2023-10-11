@@ -5,7 +5,7 @@ import { Button, Col, Container, Form } from "react-bootstrap";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { useLocation, useNavigate } from "react-router-dom";
-const URL = process.env.REACT_APP_API_ARTICULOS;
+import { agregarArticulo, editarArticulo } from "../../helpers/queries";
 
 const PagAgregarArt = () => {
   const artParaEditar = useLocation().state;
@@ -31,28 +31,21 @@ const PagAgregarArt = () => {
     } else {
       try {
         artParaEditar
-          ? await axios.put(
-              URL + `/${artParaEditar.id}`,
-              {
-                titulo,
-                texto,
-                img,
-                categoria,
-                fecha: artParaEditar.fecha,
-              },
-              { withCredentials: true }
-            )
-          : await axios.post(
-              URL + "/subir",
-              {
-                titulo,
-                texto,
-                img,
-                categoria,
-                fecha: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
-              },
-              { withCredentials: true }
-            );
+          ? editarArticulo({
+              id: artParaEditar.id,
+              titulo,
+              texto,
+              img,
+              categoria,
+              fecha: artParaEditar.fecha,
+            })
+          : agregarArticulo({
+              titulo,
+              texto,
+              img,
+              categoria,
+              fecha: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
+            });
         navigate("/");
       } catch (error) {
         console.log(error);

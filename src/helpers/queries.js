@@ -1,13 +1,56 @@
 import axios from "axios";
 
-const URL = process.env.REACT_APP_API_USUARIOS;
+const URL_USUARIOS = process.env.REACT_APP_API_USUARIOS;
+const URL_ARTICULOS = process.env.REACT_APP_API_ARTICULOS;
 
 // Funcion para registrar usuario
 export const crearUsuario = async (datos) => {
   try {
-    const respuesta = await axios.post(URL + "/registrar", datos);
+    const respuesta = await axios.post(URL_USUARIOS + "/registrar", datos);
     return respuesta;
   } catch (err) {
     return err;
   }
 };
+
+export const editarArticulo = async ({
+  id,
+  titulo,
+  texto,
+  img,
+  categoria,
+  fecha,
+}) => {
+  await axios.put(
+    URL_ARTICULOS + `/${id}`,
+    {
+      titulo,
+      texto,
+      img,
+      categoria,
+      fecha: fecha,
+    },
+    { withCredentials: true }
+  );
+};
+
+
+export const agregarArticulo = async ({
+    titulo,
+          texto,
+          img,
+          categoria,
+          fecha
+}) => {
+    await axios.post(
+        URL_ARTICULOS + "/subir",
+        {
+          titulo,
+          texto,
+          img,
+          categoria,
+          fecha
+        },
+        { withCredentials: true }
+      )
+}
