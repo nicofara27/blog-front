@@ -10,6 +10,18 @@ const CondicionalArticulos = () => {
 
   const categoria = useLocation().search;
 
+  useEffect(() => {
+    const traerArticulos = async () => {
+      try {
+        const respuesta = await axios.get(URL + `${categoria}`);
+        setArticulos(respuesta.data.reverse());
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    traerArticulos();
+  }, [categoria]);
+
   const condicionalCargando =
     articulos === null ? (
       <Container>
@@ -27,18 +39,6 @@ const CondicionalArticulos = () => {
         Por el momento no hay articulos que pertenezcan a esta categoria
       </h1>
     );
-
-  useEffect(() => {
-    const traerArticulos = async () => {
-      try {
-        const respuesta = await axios.get(URL + `${categoria}`);
-        setArticulos(respuesta.data.reverse());
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    traerArticulos();
-  }, [categoria]);
 
   return (
     <Container className="algin-self-start">
