@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Person } from "react-bootstrap-icons";
-const URL = process.env.REACT_APP_API_USUARIOS;
+import { crearUsuario } from "../../helpers/queries";
 
 const PagRegistro = () => {
   const [error, setError] = useState();
@@ -14,16 +14,17 @@ const PagRegistro = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  
+  const registrar = (datos) => {
+    crearUsuario(datos).then((respuesta) => {
+      if (respuesta.status === 200) {
+        navigate("/");
+      } else {
+        setError(respuesta.response.data);
+      }
+    });
+  }
 
-  // Funcion para registrar usuario
-  const registrar = async (datos) => {
-    try {
-      await axios.post(URL + "/registrar", datos);
-      navigate("/ingreso");
-    } catch (err) {
-      setError(err.response.data);
-    }
-  };
 
   return (
     <main className="pagFormularios d-flex flex-column align-items-center justify-content-center">
