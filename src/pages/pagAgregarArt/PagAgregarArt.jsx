@@ -1,4 +1,3 @@
-import axios from "axios";
 import moment from "moment/moment";
 import React, { useState } from "react";
 import { Button, Col, Container, Form } from "react-bootstrap";
@@ -18,8 +17,6 @@ const PagAgregarArt = () => {
     artParaEditar ? artParaEditar.categoria : ""
   );
   const [error, setError] = useState(false);
-
-  // Contiene los datos de un articulo en el caso de que se lo quiera editar
 
   const navigate = useNavigate();
 
